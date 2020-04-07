@@ -1,5 +1,5 @@
 # coding: utf-8
-__author__ = 'Ravi: https://kaggle.com/company'
+__author__ = 'Abhinav'
 
 import datetime
 from heapq import nlargest
