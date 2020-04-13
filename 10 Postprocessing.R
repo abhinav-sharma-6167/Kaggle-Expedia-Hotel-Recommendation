@@ -23,14 +23,6 @@ dest <- fread("destinations.csv")
 
 
 
-
-
-
-
-
-
-
-
 sum_and_count <- function(x){
   sum(x)*0.8456 + length(x) *(1-0.8456)
 }
