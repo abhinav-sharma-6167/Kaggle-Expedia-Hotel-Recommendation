@@ -1,7 +1,6 @@
 #Setting directory
 setwd("D:/Learning/Kaggle/Expedia")
 
-
 #Libraries used
 library(randomForest)
 library(data.table)
@@ -143,36 +142,6 @@ new_train_booking[,y1:=NULL]
 
 
  
-
-
-
-
-
-
-
-
-
-#to add the freq of occuring per quad in 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-         
-
-
-
-
-
 training<-subset(new_train_booking,subset = new_train_booking$to_group>=365)
 validation <-subset(new_train_booking,subset = new_train_booking$to_group<546)
 
@@ -185,15 +154,6 @@ training1 <-training1[,colnames(training1)[-c(7,21:23,28:30)]:= NULL,with=F]
 training2 = data.matrix(as.data.frame(training1))
 
 train.xg = xgb.DMatrix(training2, label=train_target_t, missing=NA)
-
-
-
-
-
-
-
-
-
 
 
 
@@ -250,10 +210,6 @@ model_xgb2 <- xgb.train(param, train.xg, nthread = 16, nround = 250, watchlist,
 
 end_time <- Sys.time()
 time_taken <- end_time - start_time
-
-
-
-
 
 library(gbm)
 start_time <- Sys.time()
