@@ -176,6 +176,7 @@ def gen_submission(best_s00, best_s01,best_hotels_country, best_hotels_search_de
 
         out.write(str(id) + ',')
         filled = []
+        
 
         if orig_destination_distance == '':
             s0 = (user_id, user_location_city, srch_destination_id, hotel_country, hotel_market)
