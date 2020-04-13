@@ -213,10 +213,6 @@ prediction<-predict(model_xgb,validation2, missing=NaN)
 
 
 
-
-
-
-
 library(Metrics)
 map5 <- function(preds, dtrain)
   #function over prediction and xgboost object
