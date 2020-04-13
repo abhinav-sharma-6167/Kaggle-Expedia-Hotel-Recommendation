@@ -13,6 +13,7 @@ def prepare_arrays_match():
     popular_hotel_cluster = dict()
     total = 0
 
+    
 # Calc counts
     while 1:
         line = f.readline().strip()
