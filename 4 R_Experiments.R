@@ -458,61 +458,31 @@ new_train_booking<-new_train_booking[order(srno)]
 # 
 # 
 # 
-# #Finding freq per weekkaday per cluster, merging it into c, removing remaining unrequired columns
-# k<-as.data.frame(table(c$hour,c$hotel_cluster))
-# k<-as.data.table(k)
-# k$frequency2 <- k$Freq
-# k[,Freq:=NULL]
-# c$setkey1 <- 1000*(as.numeric(c$hour)-1)+as.numeric(c$hotel_cluster)
-# k$setkey1 <-1000*(as.numeric(k$Var1)-1)+as.numeric(k$Var2)-1
-# setkey(c,setkey1)
-# setkey(k,setkey1)
-# c<-merge(c,k)
-# 
-# #c[,Freq.x:=NULL]
-# #c[,Freq.y:=NULL]
-# c[,Var1:=NULL]
-# c[,Var2:=NULL]
-# c[,setkey1:=NULL]
-# c<-c[order(srno)]
-# 
-# 
-# 
-# 
-# #Below are just analysis k liye plots!!
-# 
-# 
-# #The 100 plots to understand seasonal changes, by month plots, just to study
-# j<-1:length(unique(c$hotel_cluster))
-# for(j in 1:length(unique(c$hotel_cluster))){
-#   c1 <- subset(c, subset=hotel_cluster==j, select = c(26,30))
-#   #c2<-as.data.frame(unique(c1))
-#   c3 <- c1[,.N,by=mon]
-# 
-#   
-# 
-# ggplot(c3, aes(x = mon, y = N)) + geom_point()
-# ggsave(file=paste0(j,".png"))
-# 
-#   
-# }
-# 
-# 
-# 
-# #The 100 plots to understand seasonal changes, by date plots, just to study
-# j<-1:length(unique(c$hotel_cluster))
-# for(j in 1:length(unique(c$hotel_cluster))){
-#   c1 <- subset(c, subset=hotel_cluster==j, select = c(33,35))
-#   #c2<-as.data.frame(unique(c1))
-#   c3 <- c1[,.N,by=mon24]
-#   
-#   
-#   
-#   ggplot(c3, aes(x = mon24, y = N)) + geom_point()
-#   ggsave(file=paste0(j,".png"))
-#   
-#   
-# }
+ #Finding freq per weekkaday per cluster, merging it into c, removing remaining unrequired columns
+ k<-as.data.frame(table(c$hour,c$hotel_cluster))
+ k<-as.data.table(k)
+ k$frequency2 <- k$Freq
+ k[,Freq:=NULL]
+ c$setkey1 <- 1000*(as.numeric(c$hour)-1)+as.numeric(c$hotel_cluster)
+ k$setkey1 <-1000*(as.numeric(k$Var1)-1)+as.numeric(k$Var2)-1
+ setkey(c,setkey1)
+ setkey(k,setkey1)
+ c<-merge(c,k)
+
+ 
+ 
+ 
+#The 100 plots to understand seasonal changes, by date plots, just to study
+j<-1:length(unique(c$hotel_cluster))
+for(j in 1:length(unique(c$hotel_cluster))){
+  c1 <- subset(c, subset=hotel_cluster==j, select = c(33,35))
+  c2<-as.data.frame(unique(c1))
+  c3 <- c1[,.N,by=mon24]
+ggplot(c3, aes(x = mon24, y = N)) + geom_point()
+ggsave(file=paste0(j,".png"))
+   
+   
+}
 # 
 # 
 # 
