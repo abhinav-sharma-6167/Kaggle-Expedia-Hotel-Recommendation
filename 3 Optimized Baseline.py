@@ -253,7 +253,7 @@ def gen_submission(best_s00, best_s01,best_hotels_country, best_hotels_search_de
         for i in range(len(topclasters)):
             if topclasters[i][0] in filled:
                 continue
-            if len(filled) == 5:
+            if len(filled) == 10:
                 break
             out.write(' ' + topclasters[i][0])
             filled.append(topclasters[i][0])
